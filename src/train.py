@@ -61,7 +61,7 @@ def train():
             data_loader, arch=getattr(models, params.train.arch), metrics=DiceMulti
         )
 
-        learn.fine_tune(
+        learn.fine_tune(          
             **params.train.fine_tune_args,
             cbs=[DVCLiveCallback(live=live)],
         )
