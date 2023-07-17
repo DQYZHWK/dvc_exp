@@ -92,6 +92,7 @@ def evaluate():
                     test_img_fpaths[ii], mask_true, mask_pred
                 )
                 stacked_image = stacked_image.resize((512, 256))
+                # live.lot_image方法会将生成的图片放入plot目录
                 live.log_image(f"{Path(test_img_fpaths[ii]).stem}.png", stacked_image)
 
         live.summary["dice_multi"] = dice_multi
