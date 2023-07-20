@@ -56,6 +56,7 @@ def train():
     if params.train.arch not in model_names:
         raise ValueError(f"Unsupported model, must be one of:\n{model_names}")
 
+    
     with Live("results/train", report=None) as live:
         learn = unet_learner(
             data_loader, arch=getattr(models, params.train.arch), metrics=DiceMulti
@@ -75,6 +76,7 @@ def train():
             desc="This is a Computer Vision (CV) model that's segmenting out swimming pools from satellite images.",
             labels=["cv", "segmentation", "satellite-images", params.train.arch],
         )
+    
 
 
 if __name__ == "__main__":
